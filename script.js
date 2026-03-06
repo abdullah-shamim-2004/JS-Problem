@@ -52,7 +52,6 @@ function removeDuplicates(numbers) {
 
   return uniqueArr;
   // console.log(uniqueArr);
-  
 }
 removeDuplicates([1, 2, 2, 3, 4, 4]);
 
@@ -75,7 +74,6 @@ function evenNum(numbers) {
   return filternum;
 }
 evenNum([1, 4, 2, 6, 9]);
-
 
 // Problem 8: Capitalize First Letter of Each Word
 function capitalizedWords(sentece) {
@@ -114,3 +112,21 @@ function pingPong(n) {
   }
 }
 pingPong();
+// Problem 11: two sum problem in leetcode
+function twoSum(nums, target) {
+  const seen = new Map(); // create a new map
+  // For loop in the array
+  for (let i = 0; i < nums.length; i++) {
+    // find the complement like : complement = 9 - 7 = 2
+    const complement = target - nums[i];
+    // is the complent has on seen
+    if (seen.has(complement)) {
+      // if has then show the result
+      return [seen.get(complement), i];
+    }
+    // if not then save it with index
+    seen.set(nums[i], i);
+  }
+}
+
+console.log(twoSum([3, 5, 2, 7], 9)); // Output: [1, 3]
